@@ -14,8 +14,10 @@ You'll need superuser rights to install Python packages.
 
 ## Uninstall
 
+Go to installation directory and execute following command:
+
 ```bash
-sudo systemctl stop nym-exporter && sudo systemctl disable nym-exporter && rm -rf ${installment_dir}/prometheus-nym && sudo rm /etc/systemd/system/nym-exporter.service
+sudo systemctl stop nym-exporter && sudo systemctl disable nym-exporter && rm -rf ./prometheus-nym && sudo rm /etc/systemd/system/nym-exporter.service
 ```
 
 ## Acknowledgments
