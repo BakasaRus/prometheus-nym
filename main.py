@@ -2,6 +2,7 @@ from prometheus_client import start_http_server, Gauge, Info
 import time
 import requests
 import json
+import sys
 
 packets_mixed_total = Gauge('nym_packets_mixed_total', 'Packets mixed since startup')
 packets_mixed_last = Gauge('nym_packets_mixed_last', 'Packets mixed in last 30 seconds')
@@ -29,7 +30,8 @@ def get_metrics(mixer_ip):
 
 if __name__ == '__main__':
     ip = requests.get('https://api.ipify.org').text
-    start_http_server(8991)
+    port = int(sys.argv[1]) if sys.argv[1].isdigit() else 8991
+    start_http_server(port)
     while True:
         get_metrics(ip)
         time.sleep(30)
