@@ -28,4 +28,4 @@ sudo systemctl daemon-reload
 sudo systemctl start nym-exporter
 sudo systemctl enable nym-exporter
 
-echo "Success! Now you can look at your metrics at port $port. Don't forget to add them to Prometheus"
+echo "Success! Now you can look at your metrics at port ${port:-8991}. Don't forget to add them to Prometheus"
