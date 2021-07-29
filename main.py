@@ -30,7 +30,8 @@ def get_metrics(mixer_ip):
 
 if __name__ == '__main__':
     ip = requests.get('https://api.ipify.org').text
-    port = int(sys.argv[1]) if sys.argv[1].isdigit() else 8991
+    defined_port = (len(sys.argv) > 1 and sys.argv[1].isdigit())
+    port = int(sys.argv[1]) if defined_port else 8991
     start_http_server(port)
     while True:
         get_metrics(ip)
